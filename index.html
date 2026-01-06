@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio | AI & Automation Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bg: #0b0e11; --card: #161b22; --accent: #bfa063; 
+            --text: #e8eaed; --muted: #9aa0a6;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; }
+        
+        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
+        
+        header { text-align: center; padding: 60px 0; }
+        header h1 { font-size: 3rem; margin: 0; background: linear-gradient(to right, #bfa063, #f5e0b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { color: var(--muted); font-size: 1.1rem; margin-top: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
+        
+        .card { 
+            background: var(--card); border: 1px solid rgba(191,160,99,0.1); 
+            border-radius: 20px; padding: 25px; transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        
+        .card-tag { font-size: 10px; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .card-title { font-size: 1.5rem; margin: 10px 0; font-weight: 600; }
+        .card-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+        
+        .btn-demo { 
+            display: inline-block; margin-top: 20px; padding: 10px 20px; 
+            background: var(--accent); color: #000; text-decoration: none; 
+            border-radius: 10px; font-weight: 800; font-size: 0.8rem;
+        }
+
+        .tech-stack { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+        .badge { background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 5px; font-size: 10px; color: #fff; }
+
+        /* Floating Chat Button */
+        #chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        #chat-button { 
+            background: var(--accent); width: 60px; height: 60px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(191,160,99,0.4); font-size: 30px;
+        }
+
+        /* Chat Window */
+        #chat-window { 
+            display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; 
+            height: 450px; background: var(--card); border: 1px solid var(--accent); 
+            border-radius: 20px; flex-direction: column; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        #chat-header { 
+            background: var(--accent); color: #000; padding: 15px; 
+            font-weight: 800; font-size: 14px; 
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        #close-btn { background: none; border: none; font-size: 24px; font-weight: bold; cursor: pointer; color: #000; }
+        #close-btn:hover { color: #ff4d4d; }
+
+        #chat-content { flex: 1; padding: 15px; overflow-y: auto; font-size: 13px; color: var(--text); }
+        #chat-input-area { padding: 10px; border-top: 1px solid #333; display: flex; }
+        #chat-input { flex: 1; background: #000; border: 1px solid #333; color: #fff; padding: 8px; border-radius: 5px; outline: none; }
+        #send-btn { background: var(--accent); border: none; padding: 0 15px; margin-left: 5px; border-radius: 5px; cursor: pointer; font-weight: 800; }
+
+        .bot-msg { background: rgba(191,160,99,0.1); padding: 10px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--accent); }
+        .user-msg { background: #333; padding: 10px; border-radius: 10px; margin-bottom: 10px; text-align: right; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .faq-grid { grid-template-columns: 1fr !important; } /* Perbaikan responsif FAQ */
+            #chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
+        }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    overflow: hidden;
+}
+.price-table th, .price-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(191, 160, 99, 0.1);
+}
+.price-table th {
+    background: rgba(191, 160, 99, 0.1);
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+.price-table td {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <p>Expert in AI Integration & Cloud Automation</p>
+        <h1>Solusi Digital Tepat Guna</h1>
+        <p>Mengubah logika rumit menjadi aplikasi praktis yang memudahkan bisnis Anda.</p>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-tag">Automation & Security</div>
+            <div class="card-title">Detox - API</div>
+            <div class="card-desc">Sistem pembersihan dan validasi data otomatis melalui API untuk menjaga integritas database.</div>
+            <div class="tech-stack">
+                <span class="badge">Cloud Shell</span> <span class="badge">API</span> <span class="badge">Python</span>
+            </div>
+            <a href="#" class="btn-demo">LIHAT DEMO</a>
+        </div>
+
+        <div class="card">
+            <div class="card-tag">Systems Optimization</div>
+            <div class="card-title">Logic Balancer</div>
+            <div class="card-desc">Algoritma cerdas untuk menyeimbangkan beban kerja sistem secara otomatis guna efisiensi performa cloud.</div>
+            <div class="tech-stack">
+                <span class="badge">Firebase</span> <span class="badge">Logic</span> <span class="badge">Realtime</span>
+            </div>
+            <a href="#" class="btn-demo">LIHAT DEMO</a>
+        </div>
+
+        <div class="card">
+            <div class="card-tag">Finance & Religion Tech</div>
+            <div class="card-title">Kalkulator Waris & Zakat</div>
+            <div class="card-desc">Aplikasi perhitungan hukum waris dan zakat berdasarkan parameter syariah yang kompleks.</div>
+            <div class="tech-stack">
+                <span class="badge">Algorithm</span> <span class="badge">Mobile Friendly</span>
+            </div>
+            <a href="#" class="btn-demo">LIHAT DEMO</a>
+        </div>
+    </div>
+
+    <section style="margin-top: 80px;">
+        <h2 style="text-align: center; color: var(--accent); margin-bottom: 40px;">Pertanyaan Umum & Keamanan Data</h2>
+        <div class="faq-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: var(--accent); margin-bottom: 5px;">Bagaimana dengan biaya API AI-nya?</h4>
+                    <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0;">Kami menerapkan sistem <strong>Hybrid & Caching</strong> untuk menghemat penggunaan API.</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: var(--accent); margin-bottom: 5px;">Apakah aplikasi bisa kustom?</h4>
+                    <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0;">Tentu. Semua logika dibangun secara kustom sesuai masalah spesifik Anda.</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(191,160,99,0.05); padding: 25px; border-radius: 20px; border: 1px solid rgba(191,160,99,0.1);">
+                <h3 style="color: var(--accent); margin-top: 0;">🛡️ Keamanan & Privasi</h3>
+                <ul style="color: var(--muted); font-size: 0.9rem; padding-left: 20px; line-height: 1.8;">
+                    <li><strong>Enkripsi API Key:</strong> Dikelola di Environment Variables.</li>
+                    <li><strong>Firebase Security:</strong> Database dikunci secara ketat.</li>
+                    <li><strong>Data Detox:</strong> Filter input otomatis terhadap serangan.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+<div style="margin-bottom: 20px;">
+    <h4 style="color: var(--accent); margin-bottom: 5px;">Bagaimana masa berlaku aplikasi ini?</h4>
+    <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0;">Aplikasi ini menggunakan model <strong>Annual License</strong> (1 tahun). Hal ini bertujuan untuk memastikan biaya maintenance server dan kuota API AI Anda selalu terpenuhi, sehingga aplikasi tetap responsif dan tidak <em>down</em> di masa depan.</p>
+</div>
+<section style="margin-top: 60px;">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="color: var(--accent); margin-bottom: 10px;">Model Kerja sama & Lisensi</h2>
+        <p style="color: var(--muted);">Transparansi biaya untuk keberlanjutan sistem jangka panjang.</p>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Layanan</th>
+                    <th>Tahun ke-1 (Development)</th>
+                    <th>Tahun ke-2 & Seterusnya</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Lisensi Software</strong></td>
+                    <td>Termasuk biaya pengembangan</td>
+                    <td>Biaya langganan tahunan rendah</td>
+                </tr>
+                <tr>
+                    <td><strong>Infrastruktur</strong></td>
+                    <td>Setup Cloud & Database</td>
+                    <td>Maintenance Server & Backup berkala</td>
+                </tr>
+                <tr>
+                    <td><strong>Update AI</strong></td>
+                    <td>Integrasi Model Terbaru</td>
+                    <td>Penyesuaian API & Patch keamanan</td>
+                </tr>
+                <tr>
+                    <td><strong>Support</strong></td>
+                    <td>Prioritas Development</td>
+                    <td>Konsultasi & Perbaikan Bug gratis</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="text-align: center; color: var(--accent); font-size: 0.8rem; margin-top: 20px;">
+        *Detail biaya perpanjangan akan disepakati di awal kontrak berdasarkan kompleksitas penggunaan API AI.
+    </p>
+</section>
+    <footer style="margin-top: 80px; text-align: center; color: var(--muted); font-size: 0.8rem; border-top: 1px solid #222; padding-top: 20px;">
+        &copy; 2026 Developer AI Indonesia. Built with Passion & Logic.
+    </footer>
+</div>
+
+<div id="chat-widget">
+    <div id="chat-window">
+        <div id="chat-header">
+            <span>AI Assistant Portofolio</span>
+            <button id="close-btn" onclick="toggleChat()">&times;</button>
+        </div>
+        <div id="chat-content">
+            <div class="bot-msg">Halo! Saya asisten AI. Ada yang bisa saya bantu?</div>
+        </div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Tanya sesuatu...">
+            <button id="send-btn">></button>
+        </div>
+    </div>
+    <div id="chat-button" onclick="toggleChat()">🤖</div>
+</div>
+
+<script>
+    function toggleChat() {
+        const win = document.getElementById('chat-window');
+        const isHidden = win.style.display === 'none' || win.style.display === '';
+        win.style.display = isHidden ? 'flex' : 'none';
+    }
+
+    document.getElementById('send-btn').addEventListener('click', sendMessage);
+    document.getElementById('chat-input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+        const input = document.getElementById('chat-input');
+        const content = document.getElementById('chat-content');
+        
+        if(input.value.trim() !== "") {
+            content.innerHTML += `<div class="user-msg">${input.value}</div>`;
+            const userText = input.value;
+            input.value = "";
+            
+            setTimeout(() => {
+                content.innerHTML += `<div class="bot-msg">Saya sedang memproses tentang "${userText}". Hubungi WhatsApp untuk respon cepat.</div>`;
+                content.scrollTop = content.scrollHeight;
+            }, 1000);
+            
+            content.scrollTop = content.scrollHeight;
+        }
+    }
+</script>
+</body>
+</html>
